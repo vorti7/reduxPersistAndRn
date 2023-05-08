@@ -4,7 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { HomeScreen } from '../../screens'
+import Screens from '../../screens'
 
 export type Props = {
 };
@@ -15,7 +15,11 @@ const RootNavigator = ({}: Props) => {
     return (
         <NavigationContainer>
           <RootStack.Navigator>
-            <RootStack.Screen name="Home" component={HomeScreen} />
+            {
+              Screens.map((aScreen) => {
+                return <RootStack.Screen name={aScreen.screenName} component={aScreen.screen} />
+              })
+            }
           </RootStack.Navigator>
         </NavigationContainer>
     )

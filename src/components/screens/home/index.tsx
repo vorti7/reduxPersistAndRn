@@ -1,13 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Button} from 'react-native';
 
 export type Props = {
 };
 
 
-const HomeScreen = ({}: Props) => {
+const HomeScreen = ({navigation}: Props) => {
     return (
         <View>
+            <Button
+                title='Go Test'
+                onPress={() => {
+                    navigation.navigate("Test")
+                }}
+            />
         </View>
     )
 };

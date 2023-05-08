@@ -4,7 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Screens from '../../screens'
+import { ScreenName, Screens } from '../../screens'
 
 export type Props = {
 };
@@ -14,12 +14,10 @@ const RootStack = createNativeStackNavigator();
 const RootNavigator = ({}: Props) => {
     return (
         <NavigationContainer>
-          <RootStack.Navigator>
-            {
-              Screens.map((aScreen) => {
-                return <RootStack.Screen name={aScreen.screenName} component={aScreen.screen} />
-              })
-            }
+          <RootStack.Navigator screenOptions={{headerShown:false}}>
+            <RootStack.Screen name={ScreenName.HOME} component={Screens.HOME} />
+            <RootStack.Screen name={ScreenName.WALLET_MANAGEWALLET} component={Screens.WALLET_MANAGEWALLET} />
+            <RootStack.Screen name={ScreenName.WALLET_MANAGETOKEN} component={Screens.WALLET_MANAGETOKEN} />
           </RootStack.Navigator>
         </NavigationContainer>
     )
